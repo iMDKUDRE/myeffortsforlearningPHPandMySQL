@@ -1,3 +1,166 @@
+I) Echo PHP Function, PHP Variables, If and Switch Statements
+1. Create a page evenodd.php into root directory of your local web server. Here, write a script for
+finding out whether it is an odd number or even number and echo on the screen. The following
+numbers set can be taken as input: 11, 23, 72 and 44.
+Ex. The number 11 is an odd number.
+2. Create a page vowel.php into root directory of your local web server. Write in the script for
+determining whether or not the character associated with a variable is Vowel or a Consonant. If its
+a Vowel echo out the name of the vowel otherwise echo out its a Consonant. Use Switch for this
+script.
+
+Ans: 
+Create a page evenodd.php into root directory of your local web server. Here, write a script for
+finding out whether it is an odd number or even number and echo on the screen. The following
+numbers set can be taken as input: 11, 23, 72 and 44.
+ 
+#<?php 
+
+
+
+
+
+#?>
+
+
+<?php 
+// PHP code to check whether the number  
+// is Even or Odd in Normal way 
+
+function check($number){ 
+
+    if($number % 2 == 0){ 
+
+        echo "Even";  
+
+    } 
+
+    else{ 
+
+        echo "Odd"; 
+
+    } 
+} 
+
+  
+// Driver Code 
+
+$number = 39; 
+
+check($number) ;
+
+$number = 44; 
+
+check($number) 
+
+?>
+
+
+Create a page vowel.php into root directory of your local web server. Write in the script for
+determining whether or not the character associated with a variable is Vowel or a Consonant. If its
+a Vowel echo out the name of the vowel otherwise echo out its a Consonant. Use Switch for this
+script.
+
+<? php
+          $ch = 'U';   
+   switch ($ch)    
+  {             case 'a':               echo "Given character is vowel";              break;          case 'e':               echo "Given character is vowel";              break;          case 'i':               echo "Given character is vowel";              break;          case 'o':               echo "Given character is vowel";              break;            case 'u':               echo "Given character is vowel";              break;          case 'A':               echo "Given character is vowel";              break;          case 'E':               echo "Given character is vowel";              break;          case 'I':               echo "Given character is vowel";              break;          case 'O':               echo "Given character is vowel";              break;          case 'U':               echo "Given character is vowel";              break;          default:               echo "Given character is consonant";              break;      }  ?>    
+
+############
+
+
+
+II) PHP Operators
+1. Write a PHP Script to declare 2 variables with specific numeric value of your choice and Perform
+the following operations: Addition, Subtraction, Multiplication and Division. Also echo out the
+Result on the screen.
+2. Write a PHP Script to declare 2 variables with specific numeric value of your choice and find out
+the greater number between the two. If the numbers are equal, the respective message must
+appear on the screen.
+
+Ans : 
+Write a PHP Script to declare 2 variables with specific numeric value of your choice and Perform
+the following operations: Addition, Subtraction, Multiplication and Division. Also echo out the
+Result on the screen.
+
+
+ <?php
+         $a = 42;
+         $b = 20;
+         
+         $c = $a + $b;
+         echo "Addtion Operation Result: $c <br/>";
+         
+         $c = $a - $b;
+         echo "Substraction Operation Result: $c <br/>";
+         
+         $c = $a * $b;
+         echo "Multiplication Operation Result: $c <br/>";
+         
+         $c = $a / $b;
+         echo "Division Operation Result: $c <br/>";
+         
+         $c = $a % $b;
+         echo "Modulus Operation Result: $c <br/>";
+         
+         $c = $a++; 
+         echo "Increment Operation Result: $c <br/>";
+         
+         $c = $a--; 
+         echo "Decrement Operation Result: $c <br/>";
+      ?>
+
+
+Write a PHP Script to declare 2 variables with specific numeric value of your choice and find out
+the greater number between the two. If the numbers are equal, the respective message must
+appear on the screen.
+
+
+
+
+
+<?php
+$a=20;
+$b=10;
+$c=1;
+if($a>$b && $a>$c)
+{
+echo "Greater value is a=".$a;
+}
+else if($b>$a && $b>$c)
+{
+echo "Greater value is b=".$b;
+}
+else if($c>$a && $c>$b)
+{
+echo "Greater value is c=".$c;
+}
+else
+{
+echo"Dont Enter Equal Values";
+}
+?>
+
+
+III) Arrays
+1. Declare an array week and assign the value of the days to each index number in the order of
+occurrence and echo the result on the screen.
+2. Write a PHP script to add the two 2x2 Matrices and output the result.
+
+Declare an array week and assign the value of the days to each index number in the order of
+occurrence and echo the result on the screen.
+
+<?php 
+$timestamp = strtotime('next Sunday'); $days = array(); for ($i = 0; $i < 7; $i++) { $days[] = strftime('%A', $timestamp); $timestamp = strtotime('+1 day', $timestamp); }
+echo date("D",$timestamp)."<br>";
+
+echo date("l",$timestamp)."<br>";
+
+echo date("d",$timestamp)."<br>"; 
+
+?>
+
+Write a PHP script to add the two 2x2 Matrices and output the result.
+
 <?php 
 
 //create 4*4 multidimensional array
@@ -21,6 +184,8 @@ printMatrix($a);
 echo "<br>Array b :<br><br>";
 
 printMatrix($b);
+
+
 
 		
 //add two array
@@ -58,48 +223,6 @@ function addMatrix($matrix_1,$matrix_2)
 			}
 	}
 
-?>
-
-<?php
-
-$a=10;
-$b=20;
-
-$c=$a+$b;
-
-echo "a+b=".$c;
 
 ?>
 
-<?php
-
-$a=10;
-$b=20;
-
-$c=$a-$b;
-
-echo "a-b=".$c;
-
-?>
-
-<?php
-
-$a=10;
-$b=20;
-
-$c=$a*$b;
-
-echo "ab=".$c;
-
-?>
-
-<?php
-
-$a=10;
-$b=20;
-
-$c=$a/$b;
-
-echo "a/b=".$c;
-
-?>
