@@ -1,105 +1,195 @@
+Assignment-2
+
+IV) Loops
+1. Write a PHP Script to print the following pattern on the Screen:
+*****
+****
+***
+**
+*
+
+<?php  
+for($i=0;$i<=5;$i++)
+{  
+for($j=5-$i;$j>=1;$j--)
+{  
+echo "* ";  
+}  
+echo "<br>";  
+}  
+?>  
+
+
+
+2. Declare an array variable "x" assigning it with three elements "one, two and three" and Use for
+each loop to print the values of the given array.
+
+<?php
+
+$A = array();
+
+$A[0] = "one";
+$A[1] = "two";
+$A[2] = "three";
+
+for( $i=0 ; $i<=2 ; $i++ ) {
+  print( "$A[$i]\n" );
+}
+
+
+V) Functions 
+1. Declare and define a function named writeName and within it echo out: Ramachandra. Now call
+the function to retrieve the following output: My name is Ramachandra
+
+
 <?php 
+function whatIsToday(){ echo "My Name is " . RAMCHANDRA; } 
+ whatIsToday(); ?>
 
-//create 4*4 multidimensional array
 
-$a=array(array(1,2,3,4),
-		array(1,2,3,4),
-		array(1,2,3,4),
-		array(1,2,3,4));
-		
-$b=array(array(1,2,3,4),
-		array(1,2,3,4),
-		array(1,2,3,4),
-		array(1,2,3,4));
-		
-//print array
 
-echo "Array a :<br><br>";
+2. Declare a function named writeName2 with a parameter $firstname and define it by echoing out:
+$firstname." Sharma". Now call the function to retrieve the following output:
+My name is Jai Sharma
+My brother's name is Ram Sharma
+Note: Use writeName2 function to write the names on screen.
 
-printMatrix($a);
 
-echo "<br>Array b :<br><br>";
 
-printMatrix($b);
-
-		
-//add two array
-
-echo "<br>Array c = a + b :<br><br>";
-
-addMatrix($a,$b);
-
-//user defined function to print multidimensional array
-
-function printMatrix($matrix)
-	{
-		for($i=0;$i<count($matrix);$i++)
-			{
-				for($j=0;$j<count($matrix);$j++)
-					{
-						echo $matrix[$i][$j]." ";
-					}
-				echo "<br>";
-			}
-	}
-	
-//user defined function to add multidimensional array
-
-function addMatrix($matrix_1,$matrix_2)
-	{
-		for($i=0;$i<count($matrix_1);$i++)
-			{
-				for($j=0;$j<count($matrix_1);$j++)
-					{
-						$c[$i][$j]=$matrix_1[$i][$j]+$matrix_2[$i][$j];
-						echo $c[$i][$j]." ";
-					}
-				echo "<br>";
-			}
-	}
-
-?>
+VI) PHP Special Variables and PHP and HTML 
+1. If the three sides of a triangle are entered by the user, write a program to check whether the
+triangle is isosceles, equilateral, scalene or right angled triangle. Use the 'Get' method to post the
+form.
 
 <?php
-
-$a=10;
-$b=20;
-
-$c=$a+$b;
-
-echo "a+b=".$c;
-
+$a = 5;
+$b = 3;
+$c = 4;
+$a *= $a;
+$b *= $b;
+$c *= $c;
+if($a + $b == $c || $a + $c == $b || $b + $c == $a){
+    echo "YES\n";
+}
+else
+{
+    echo "NO\n";
+    }
 ?>
 
+2. Create a php page and create a user form which asks for marks in five subjects out of 100 and
+then displays the marksheet of the student. The format is as follows:
+Name of Student*:
+Marks in Each Subject
+Subject 1* : 
+Subject 2* :
+Subject 3* :
+Subject 4* :
+Subject 5* :
+Total Marks Obtained: 
+Total Marks: 
+Percentage:
+Note: All the entries marked (*) are to be input by the user. And use a submit button to post the
+entries in the form using the POST method.
+
+<?php error_reporting(E_ALL ^ E_NOTICE); ?>
+<html>
+<body>
+<div>
+<div>
+<form action="connmarks.php" method="post">
+    <table>
+    <tr><td colspan="6">&nbsp;</td></tr>
+    <tr><td><p>Adding Student Results</p></td></tr>
+    <tr>
+    <td width="9%">Student Code<?php echo $mstudentcode;?></td>
+    <td width="17%"><input name="student_code" type="text" size="30" value="<?php echo $studentcode;?>" /></td></tr>
+    <tr>
+    <td width="10%">Subject Code<?php echo $msubjectcode;?></td>
+    <td width="18%"><input name="subject_code" type="text" size="30"  value="<?php echo $subject_code;?>"/></td></tr>
+    <tr>
+    <td width="12%">Marks<?php echo $mmark;?></td>
+    <td width="34%"><input name="mark" type="text" size="30" value="<?php echo $mark;?>"/></td>
+
+    </tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;
+      </td>
+    </tr>
+     <tr><td colspan="4">&nbsp;</td></tr>
+      <tr><td colspan="6">&nbsp;</td></tr>
+     <tr>
+    <td>&nbsp;</td><td colspan="6"><input type="submit" name="save" value="Add Marks" /></td>
+     </tr>
+     <tr><td colspan="6"><?php echo $sms1.$sms.$sms2;?></td></tr>
+    </table>
+    </form>
+    </div>
+    <div id="footer">Copyright <?php echo date("Y", time()); ?></div>
+</div>
+</body>
+</html>
+
+
+<?php error_reporting(E_ALL ^ E_NOTICE); ?>
 <?php
-
-$a=10;
-$b=20;
-
-$c=$a-$b;
-
-echo "a-b=".$c;
-
-?>
-
-<?php
-
-$a=10;
-$b=20;
-
-$c=$a*$b;
-
-echo "ab=".$c;
-
-?>
-
-<?php
-
-$a=10;
-$b=20;
-
-$c=$a/$b;
-
-echo "a/b=".$c;
-
+session_start();
+if(isset($_POST['save']))
+{
+//  validating student code
+    if(empty($_POST['student_code']))
+    {
+        $mstudentcode='<font color="red"><b>**</b></font>';
+    }
+    else
+    {
+        $student_code=$_POST['student_code'];
+    }
+//  validation for kiswahili subject
+    if(empty($_POST['subject_code']))
+    {
+        $msubjectcode='<font color="red"><b>**</b></font>';
+    }
+    else
+    {
+        $subject_code=$_POST['subject_code'];
+    }
+// validating english subject
+    if(empty($_POST['mark']))
+    {
+        $mmark='<font color="red"><b>**</b></font>';
+    }
+    else
+    {
+        $mark=$_POST['mark'];
+    }
+// checking if there is any error message, if no error proceed, if there is error, display the error
+//  Then exit the script and redirect at the same page
+    if($mstudentcode||$msubjectcode||$mmark||$sms)
+    {
+        $sms1='<font color="red"><b>Error found,please check **</b></font><br/>';
+        include 'addmarks.php';
+        exit;
+    }
+// if there is no error include connection file
+    if($student_code&&$subject_code&&$mark)
+    {
+//      include 'mysqli_connect.php';
+      require_once ('../../mysqli_connect.php');
+        $addmarks= "insert into result(student_code,subject_code,mark) values ('".$student_code."','".$subject_code."','".$mark."')";
+        $k = mysqli_query($dbc, $addmarks);
+        if ($k)
+        {
+       $sms1='<font color="green"><b>Student Marks Submitted Successfully</b></font><br/>';
+            include 'addmarks.php';
+                        exit;
+        }
+        else
+        {
+            $sms1='<font color="red"><b>Failed To Add Student Marks</b></font><br/>';
+            include 'addmarks.php';
+                        exit;
+        }
+    }
+    }
 ?>
