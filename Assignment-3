@@ -1,0 +1,43 @@
+Assignments for PHP & Mysql Level 2
+MYSQL
+1. Create a php page and create a user form which asks for marks in five subjects out of 100 and then
+displays the mark sheet of the student. The format is as follows:
+Name of Student*:
+Marks in Each Subject
+Subject 1* : 
+Subject 2* :
+Subject 3* :
+Subject 4* :
+Subject 5* :
+Total Marks Obtained: 
+Total Marks: 
+Percentage:
+Note: All the entries marked (*) are to be input by the user. And use a submit button to post the entries
+in the form using the POST method. The data gets saved in a MySQL Database named "result" and
+table named "class1". with each user assigned a unique numeric id (AUTO INCREMENT TYPE).The
+following is the format to store the data in the result database:
+id(BIG INT), name(CHAR), sub1(INT), sub2(INT), sub3(INT), sub4(INT), sub5(INT), total obtained
+(INT), total marks(INT) and percent(FLOAT).
+
+
+<?php
+
+echo "Enter the mark1\nEnter the mark3\nEnter the mark3\n";
+
+$mark1=trim(fgets(STDIN));
+
+$mark2=trim(fgets(STDIN));
+
+$mark3=trim(fgets(STDIN));
+
+$total=($mark1+$mark3+$mark3);
+
+echo "Total number =".$total;
+>
+
+
+2. In the previous assignment use the following data: 
+Name: Rohan
+Marks in Subject(s): 55,66,77,88,76
+Now write a PHP Script to update the values in the database with the new marks in subject 5 as "99"
+and recalculating and updating database entries: total obtained and percent.
