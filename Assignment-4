@@ -1,0 +1,28 @@
+Assigntments for PHP & Mysql Level 3
+# Simple Visitor Counter
+Implement a Simple Visitor Counter in the Assignment associated with MYSQL.
+#PHP String Functions
+Create a PHP Script which asks for user to enter some random string. Use the appropriate
+string functions to display the following operation on the input string.
+1. Count number of Characters in the string
+2. Breaking down a string into an array
+3. Reverse the string
+4. Convert all alphabetic characters in string to their lower case form.
+5. Convert all alphabetic characters in string to their upper case form. 
+6. Declare a substring and replace the content of substring into original string.
+#File upload
+Create a file upload for and once uploaded display the information of the file uploaded (Ex.
+File Name and File Size).
+#MD5 Encryption
+Use the md5 function to encrypt the password entered by the user in a form which submits
+the user name and the password of the user and stores the encrypted password along with the
+username in a database named data1.
+#Sending Email
+Create a Feedback form which is used to take the feedback along with the following
+Information: Name and Email ID. After the successful submission of the form by the user, a
+mail is sent to the user thanking him for his feedback and another mail is to be sent to the
+administrator consisting of the information provided by the user ie. Name, Email and
+Feedback.
+
+<?php $servername = "localhost"; $username = "dtbsuser"; $password = "dtbs#passw01";
+ $dbname = "dtbsname"; $conn = new mysqli($servername, $username, $password, $dbname); if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); } $sql = "UPDATE Counter SET visits = visits+1 WHERE id = 1"; $conn->query($sql); $sql = "SELECT visits FROM Counter WHERE id = 1"; $result = $conn->query($sql); if ($result->num_rows > 0) { while($row = $result->fetch_assoc()) { $visits = $row["visits"]; } } else { echo "no results"; } $conn->close(); ?> <!doctype html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="x-ua-compatible" content="ie=edge"> <title>Visit counter</title> </head> <body> Visits: <?php print $visits; ?>
